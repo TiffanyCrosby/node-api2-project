@@ -101,9 +101,9 @@ router.delete('/:id', (req, res) => {
 
     db.remove(id)
     .then(post => {
-      if (post > 0) {
+      if (post > 0 && post) {
         res.status(200).json({successMessage: `${post} has been deleted!`});
-      } else if(post === 0){
+      } else {
           res.status(404).json({ errorMessage: "The post with the specified ID does not exist." })
       }
     })
